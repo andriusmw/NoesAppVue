@@ -10,12 +10,13 @@ const showModal = ref(false)
 <template>
   <main>
 
-    <!-- v-if es una directiva para conditional rendering -->
+   <!-- v-if es una directiva para conditional rendering -->
+   <!-- v-show is an alternative -->
     <div v-if="showModal"  class="overlay">
       <div class="modal">
         <textarea name="note" id="note" cols="30" rows="10"></textarea>
       <button>Add Note</button>
-       <button class="close">Close</button>
+       <button class="close" @click="showModal= false">Close</button>
       </div>
     </div>
 
