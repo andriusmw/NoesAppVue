@@ -1,20 +1,28 @@
+<script setup>
+import {ref} from "vue";
+
+const showModal = ref(false)
+
+
+</script>
+
+
 <template>
   <main>
 
-    <!-- comentado por ahora para no interferir
-    <div class="overlay">
+    <!-- v-if es una directiva para conditional rendering -->
+    <div v-if="showModal"  class="overlay">
       <div class="modal">
         <textarea name="note" id="note" cols="30" rows="10"></textarea>
       <button>Add Note</button>
        <button class="close">Close</button>
       </div>
     </div>
-    -->
 
     <div class="container">
       <header>
         <h1>Notes</h1>
-        <button>+</button>
+        <button @click="showModal = true">+</button>
       </header>
 
       <div class="card-container">
