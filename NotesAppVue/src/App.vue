@@ -1,12 +1,15 @@
 <template>
   <main>
 
+    <!-- comentado por ahora para no interferir
     <div class="overlay">
       <div class="modal">
         <textarea name="note" id="note" cols="30" rows="10"></textarea>
       <button>Add Note</button>
+       <button class="close">Close</button>
       </div>
     </div>
+    -->
 
     <div class="container">
       <header>
@@ -136,6 +139,11 @@
     cursor: pointer;
     margin-top: 15px;
 
+  }
+
+  .modal .close {
+    background-color: red;
+    margin-top: 7px;
   }
 
 </style>
