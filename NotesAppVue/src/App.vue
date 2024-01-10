@@ -46,21 +46,15 @@ const addNote = () => {
 
       <div class="card-container">
 
-        <div class="card">
-          <p class="main-text">Lorem ipsum dolor, sit amet consectetur 
-            adipisicing elit. Molestias expedita doloribus distinctio, 
-            dolores repellendus veniam!</p>
-
-          <p class="date">04/03/6534</p>
+        <div v-for="note in notes" 
+        :key="note.id"
+        class="card" 
+        :style="{backgroundColor: note.backgroundColor}">
+          <p class="main-text">{{note.text}}</p>
+          <p class="date">{{note.date.toLocaleDateString("en-US")}}</p>
         </div>
 
-         <div class="card">
-          <p class="main-text">Lorem ipsum dolor, sit amet consectetur 
-            adipisicing elit. Molestias expedita doloribus distinctio, 
-            dolores repellendus veniam!</p>
-
-          <p class="date">04/03/6534</p>
-        </div>
+      
 
       </div>
 
