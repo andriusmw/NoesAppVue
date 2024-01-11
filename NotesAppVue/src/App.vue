@@ -3,6 +3,7 @@ import {ref} from "vue";
 
 const showModal = ref(false)
 const newNote = ref("")
+const errorMessage = ref("")
 const notes = ref([])
 
 //function to get a randomColor
@@ -12,6 +13,10 @@ function getRandomColor() {
 }
 
 const addNote = () => {
+  if(newNote.value.length < 10) {
+
+    return errorMessage.value ="Note needs to be 10 characters or more"
+  }
   notes.value.push({
     id: Math.floor(Math.random() * 1000000),
     text: newNote.value,
@@ -33,6 +38,7 @@ const addNote = () => {
     <div v-if="showModal"  class="overlay">
       <div class="modal">
         <textarea v-model="newNote"  name="note" id="note" cols="30" rows="10"></textarea>
+      <p v-if="errorMessage" >{{errorMessage}}</p>
       <button @click="addNote" >Add Note</button>
        <button class="close" @click="showModal= false">Close</button>
       </div>
@@ -165,6 +171,10 @@ const addNote = () => {
   .modal .close {
     background-color: red;
     margin-top: 7px;
+  }
+
+  .modal p {
+    color: red;
   }
 
 </style>
